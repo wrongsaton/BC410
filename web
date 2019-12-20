@@ -1,0 +1,54 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>NOTIFY MOUSE</title>
+</head>
+
+<body>
+<?php
+$objConnect = mysql_connect("localhost", "root", "1234") or die ("Error Connect to Database");
+$objDB = mysql_select_db("arduino");
+$strSQL = "SELECT * FROM temp";
+$objQuery = mysql_query($strSQL) or die ("Error Query [".$strSQL."]");
+?>
+<table width="379" border="0" align="center">
+  <tr>
+    <td height="47" colspan="2" align="center">กรงดักหนู</td>
+  </tr>
+  <?php
+  while($objResult = mysql_fetch_array($objQuery))
+  {
+	?>
+  <tr>
+    <td width="102" height="47" align="center">กรงที่1</td>
+    <td align="center"><?php echo $objResult["Mouse"];?></td>
+  </tr>
+  <tr>
+    <td height="47" align="center">กรงที่2</td>
+    <td align="center"><?php echo $objResult["Mouse"];?></td>
+  </tr>
+  <tr>
+    <td height="47" align="center">กรงที่3</td>
+    <td align="center"><?php echo $objResult["Mouse"];?></td>
+  </tr>
+  <tr>
+    <td height="47" align="center">กรงที่4</td>
+    <td align="center"><?php echo $objResult["Mouse"];?></td>
+  </tr>
+  <tr>
+    <td height="47" align="center">กรงที่5</td>
+    <td align="center"><?php echo $objResult["Mouse"];?></td>
+  </tr>
+  <tr>
+    <td height="47" align="center">กรงที่6</td>
+    <td align="center"><?php echo $objResult["Mouse"];?></td>
+  </tr>
+  <?php
+  }
+  ?>
+</table>
+<?php
+mysql_close($objConnect);
+?>
+</body>
+</html>
