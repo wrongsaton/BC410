@@ -1,0 +1,51 @@
+#include <TridentTD_LineNotify.h>
+#include <ESP8266HTTPClient.h>
+#define SSID "Nan_janejira"                                      
+#define PASSWORD "0940657244"                        
+#define LINE_TOKEN "J4SFfJCPztXeHY5r90UuEfkq5VKTRpxpsRavkUQuYU6"
+int digitalPin = D6;                                             
+int val = 0; 
+int ENA = D7;
+int IN1 = D2;
+int IN2 = D3;
+
+void setup() 
+{
+  pinMode (IN1,OUTPUT);
+  pinMode (IN2,OUTPUT);
+  pinMode (ENA,OUTPUT); 
+  Serial.begin(9600); Serial.println();
+  Serial.println(LINE.getVersion());
+  WiFi.begin(SSID, PASSWORD);
+  Serial.printf("WiFi connecting to %s\n", SSID);
+  
+  while (WiFi.status() != WL_CONNECTED) {
+  Serial.print(".");
+  delay(2000);
+  }
+    Serial.printf("\nWiFi connected\nIP : ");
+    Serial.println(WiFi.localIP());
+    LINE.setToken(LINE_TOKEN);
+    pinMode(digitalPin, INPUT);
+    }
+
+void loop() 
+      {
+
+      val = digitalRead(digitalPin);           
+      Serial.print("val = ");                
+      Serial.println(val);                   
+      if (val == 0) {                        
+      LINE.notify("มีหนูเข้ากรงติดกรงที่ 3");          
+        digitalWrite(IN1, LOW); 
+        digitalWrite(IN2, HIGH);
+        digitalWrite(ENA, 200);
+        delay(10000);
+      }
+      else {
+        digitalWrite(IN1, LOW); 
+        digitalWrite(IN2, LOW);
+        digitalWrite(ENA, 0);
+      }
+      delay(100);
+      }
