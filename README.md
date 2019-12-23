@@ -17,11 +17,6 @@
 - motor
 
 
-# รูประบบการแจ้งเตือน เมื่อมีหนูติดกับดัก
-
-https://drive.google.com/file/u/1/d/1D-iW6S0beeNdYfrzVQzqJfS-QuHrKEx0/view?usp=drive_open&fbclid=IwAR2BC2o5jHLu8EVtKY6mNtrtPrXprnrdaG6sRWzhWxjzIAUPjJwKRyPYc00
-
-
 # โครงงานนี้เป็นส่วนหนึ่งของวิชา BC410 สัมมนาทางคอมพิวเตอร์ธุรกิจ
 # หลักสูตรเทอมต้น ปีการศึกษา 2562
 # มหาวิทยาลัยหอการค้าไทย
